@@ -38,6 +38,10 @@
             this.btnKazMusic = new System.Windows.Forms.Button();
             this.btnRusReklama = new System.Windows.Forms.Button();
             this.btnKazReklama = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbCountRusMusic = new System.Windows.Forms.Label();
+            this.lbCountKazMusic = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -134,11 +138,57 @@
             this.btnKazReklama.UseVisualStyleBackColor = true;
             this.btnKazReklama.Click += new System.EventHandler(this.btnKazReklama_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(883, 361);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 24);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Кол рус муз";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(1090, 361);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Кол каз муз";
+            // 
+            // lbCountRusMusic
+            // 
+            this.lbCountRusMusic.AutoSize = true;
+            this.lbCountRusMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbCountRusMusic.Location = new System.Drawing.Point(932, 398);
+            this.lbCountRusMusic.Name = "lbCountRusMusic";
+            this.lbCountRusMusic.Size = new System.Drawing.Size(20, 24);
+            this.lbCountRusMusic.TabIndex = 11;
+            this.lbCountRusMusic.Text = "0";
+            this.lbCountRusMusic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbCountKazMusic
+            // 
+            this.lbCountKazMusic.AutoSize = true;
+            this.lbCountKazMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbCountKazMusic.Location = new System.Drawing.Point(1140, 398);
+            this.lbCountKazMusic.Name = "lbCountKazMusic";
+            this.lbCountKazMusic.Size = new System.Drawing.Size(20, 24);
+            this.lbCountKazMusic.TabIndex = 12;
+            this.lbCountKazMusic.Text = "0";
+            this.lbCountKazMusic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 450);
+            this.Controls.Add(this.lbCountKazMusic);
+            this.Controls.Add(this.lbCountRusMusic);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnKazReklama);
             this.Controls.Add(this.btnRusReklama);
             this.Controls.Add(this.btnKazMusic);
@@ -167,6 +217,10 @@
         private System.Windows.Forms.Button btnKazMusic;
         private System.Windows.Forms.Button btnRusReklama;
         private System.Windows.Forms.Button btnKazReklama;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbCountRusMusic;
+        private System.Windows.Forms.Label lbCountKazMusic;
     }
 }
 

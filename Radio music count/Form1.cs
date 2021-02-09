@@ -21,6 +21,10 @@ namespace Radio_music_count
         List<string> listExclude = new List<string>();
 
 
+        int countRusMusic = 0;
+        int countKazMusic = 0;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -69,6 +73,7 @@ namespace Radio_music_count
 
                                 if (IsFind(listKazMusic, newStr))
                                 {
+                                    countKazMusic++;
                                     newStr = "";
                                 }
                             }
@@ -89,6 +94,7 @@ namespace Radio_music_count
                                     }
                                     else if (IsFind(listRusMusic, newStr))
                                     {
+                                        countRusMusic++;
                                         newStr = "";
                                     }
                                     else
@@ -108,6 +114,8 @@ namespace Radio_music_count
                     }
                 }
 
+                lbCountKazMusic.Text = countKazMusic.ToString();
+                lbCountRusMusic.Text = countRusMusic.ToString();
 
                 btnStart.Enabled = true;
             }
