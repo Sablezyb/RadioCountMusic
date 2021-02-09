@@ -1,0 +1,10 @@
+D:\Programming\C#\Radio music count\Radio music count\bin\Debug\Radio music count.exe.config
+D:\Programming\C#\Radio music count\Radio music count\bin\Debug\Radio music count.exe
+D:\Programming\C#\Radio music count\Radio music count\bin\Debug\Radio music count.pdb
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio music count.csprojAssemblyReference.cache
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio_music_count.Form1.resources
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio_music_count.Properties.Resources.resources
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio music count.csproj.GenerateResource.cache
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio music count.csproj.CoreCompileInputs.cache
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio music count.exe
+D:\Programming\C#\Radio music count\Radio music count\obj\Debug\Radio music count.pdb
