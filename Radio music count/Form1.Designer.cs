@@ -36,12 +36,8 @@
             this.btnExclude = new System.Windows.Forms.Button();
             this.btnRusMusic = new System.Windows.Forms.Button();
             this.btnKazMusic = new System.Windows.Forms.Button();
-            this.btnRusReklama = new System.Windows.Forms.Button();
-            this.btnKazReklama = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbCountRusMusic = new System.Windows.Forms.Label();
-            this.lbCountKazMusic = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -51,7 +47,7 @@
             // btnStart
             // 
             this.btnStart.Enabled = false;
-            this.btnStart.Location = new System.Drawing.Point(637, 389);
+            this.btnStart.Location = new System.Drawing.Point(484, 159);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(152, 47);
             this.btnStart.TabIndex = 0;
@@ -62,7 +58,7 @@
             // 
             this.lbStatus.AutoSize = true;
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbStatus.Location = new System.Drawing.Point(633, 72);
+            this.lbStatus.Location = new System.Drawing.Point(480, 12);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(155, 24);
             this.lbStatus.TabIndex = 1;
@@ -70,7 +66,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(636, 140);
+            this.btnSelect.Location = new System.Drawing.Point(482, 80);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(152, 45);
             this.btnSelect.TabIndex = 2;
@@ -83,14 +79,14 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 72);
+            this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(615, 364);
+            this.listBox1.Size = new System.Drawing.Size(439, 424);
             this.listBox1.TabIndex = 3;
             // 
             // btnExclude
             // 
-            this.btnExclude.Location = new System.Drawing.Point(633, 259);
+            this.btnExclude.Location = new System.Drawing.Point(1133, 12);
             this.btnExclude.Name = "btnExclude";
             this.btnExclude.Size = new System.Drawing.Size(152, 45);
             this.btnExclude.TabIndex = 4;
@@ -100,7 +96,7 @@
             // 
             // btnRusMusic
             // 
-            this.btnRusMusic.Location = new System.Drawing.Point(886, 140);
+            this.btnRusMusic.Location = new System.Drawing.Point(714, 12);
             this.btnRusMusic.Name = "btnRusMusic";
             this.btnRusMusic.Size = new System.Drawing.Size(152, 45);
             this.btnRusMusic.TabIndex = 5;
@@ -110,7 +106,7 @@
             // 
             // btnKazMusic
             // 
-            this.btnKazMusic.Location = new System.Drawing.Point(886, 259);
+            this.btnKazMusic.Location = new System.Drawing.Point(922, 12);
             this.btnKazMusic.Name = "btnKazMusic";
             this.btnKazMusic.Size = new System.Drawing.Size(152, 45);
             this.btnKazMusic.TabIndex = 6;
@@ -118,79 +114,22 @@
             this.btnKazMusic.UseVisualStyleBackColor = true;
             this.btnKazMusic.Click += new System.EventHandler(this.btnKazMusic_Click);
             // 
-            // btnRusReklama
+            // listBox2
             // 
-            this.btnRusReklama.Location = new System.Drawing.Point(1093, 140);
-            this.btnRusReklama.Name = "btnRusReklama";
-            this.btnRusReklama.Size = new System.Drawing.Size(152, 45);
-            this.btnRusReklama.TabIndex = 7;
-            this.btnRusReklama.Text = "Рус Реклама";
-            this.btnRusReklama.UseVisualStyleBackColor = true;
-            this.btnRusReklama.Click += new System.EventHandler(this.btnRusReklama_Click);
-            // 
-            // btnKazReklama
-            // 
-            this.btnKazReklama.Location = new System.Drawing.Point(1093, 259);
-            this.btnKazReklama.Name = "btnKazReklama";
-            this.btnKazReklama.Size = new System.Drawing.Size(152, 45);
-            this.btnKazReklama.TabIndex = 8;
-            this.btnKazReklama.Text = "Каз Реклама";
-            this.btnKazReklama.UseVisualStyleBackColor = true;
-            this.btnKazReklama.Click += new System.EventHandler(this.btnKazReklama_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(883, 361);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 24);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Кол рус муз";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1090, 361);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Кол каз муз";
-            // 
-            // lbCountRusMusic
-            // 
-            this.lbCountRusMusic.AutoSize = true;
-            this.lbCountRusMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbCountRusMusic.Location = new System.Drawing.Point(932, 398);
-            this.lbCountRusMusic.Name = "lbCountRusMusic";
-            this.lbCountRusMusic.Size = new System.Drawing.Size(20, 24);
-            this.lbCountRusMusic.TabIndex = 11;
-            this.lbCountRusMusic.Text = "0";
-            this.lbCountRusMusic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbCountKazMusic
-            // 
-            this.lbCountKazMusic.AutoSize = true;
-            this.lbCountKazMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbCountKazMusic.Location = new System.Drawing.Point(1140, 398);
-            this.lbCountKazMusic.Name = "lbCountKazMusic";
-            this.lbCountKazMusic.Size = new System.Drawing.Size(20, 24);
-            this.lbCountKazMusic.TabIndex = 12;
-            this.lbCountKazMusic.Text = "0";
-            this.lbCountKazMusic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 20;
+            this.listBox2.Location = new System.Drawing.Point(714, 80);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(571, 344);
+            this.listBox2.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 450);
-            this.Controls.Add(this.lbCountKazMusic);
-            this.Controls.Add(this.lbCountRusMusic);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnKazReklama);
-            this.Controls.Add(this.btnRusReklama);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.btnKazMusic);
             this.Controls.Add(this.btnRusMusic);
             this.Controls.Add(this.btnExclude);
@@ -215,12 +154,8 @@
         private System.Windows.Forms.Button btnExclude;
         private System.Windows.Forms.Button btnRusMusic;
         private System.Windows.Forms.Button btnKazMusic;
-        private System.Windows.Forms.Button btnRusReklama;
-        private System.Windows.Forms.Button btnKazReklama;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbCountRusMusic;
-        private System.Windows.Forms.Label lbCountKazMusic;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

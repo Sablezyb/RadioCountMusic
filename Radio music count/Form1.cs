@@ -25,6 +25,14 @@ namespace Radio_music_count
         int countKazMusic = 0;
 
 
+        string separ1 = @"\Music\каз\";
+        //string separ2 = @"\Реклама\";
+        string separ3 = @"^\\Music\\(\d+\.\d+\.\d+)\\";
+        string separ4 = @"^\d+\s";
+        string separ5 = @"\|+.+";
+        
+
+
         public Form1()
         {
             InitializeComponent();
@@ -45,77 +53,82 @@ namespace Radio_music_count
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                string path = openFileDialog1.FileName;
+                string[] paths = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
 
-                using (StreamReader sr = new StreamReader(path, Encoding.ASCII))
+                Regex regex = new Regex(separ3);
+                Regex regex2 = new Regex(separ4);
+                Regex regex3 = new Regex(separ5);
+
+                for (int i = 0; i<paths.Length; i++)
                 {
-                    string separ1 = @"\Music\каз\";
-                    //string separ2 = @"\Реклама\";
-                    string separ3 = @"^\\Music\\(\d+\.\d+\.\d+)\\";
-                    string separ4 = @"^\d+\s";
-                    string separ5 = @"\|+.+";
-                    Regex regex = new Regex(separ3);
-                    Regex regex2 = new Regex(separ4);
-                    Regex regex3 = new Regex(separ5);
-                    
-                    string str;
-                    while ((str = sr.ReadLine())!= null)
-                    {
-                        string newStr = "";
-                        if (str.StartsWith(separ1))
-                        {
-                            newStr = str.Replace(separ1, "");
-                            if (Regex.IsMatch(newStr, separ5))
-                            {
-                                newStr = regex3.Replace(newStr, "");
+                    string path = paths[i];
 
-                                if (IsFind(listKazMusic, newStr))
-                                {
-                                    countKazMusic++;
-                                    newStr = "";
-                                }
-                            }
-                        }
-                        else if (Regex.IsMatch(str, separ3))
+                    using (StreamReader sr = new StreamReader(path, Encoding.ASCII))
+                    {
+                        countKazMusic = 0;
+                        countRusMusic = 0;
+
+                        string str;
+                        while ((str = sr.ReadLine()) != null)
                         {
-                            newStr = regex.Replace(str, "");
-                            if (Regex.IsMatch(newStr, separ4))
+                            string newStr = "";
+                            if (str.StartsWith(separ1))
                             {
-                                newStr = regex2.Replace(newStr, "");
+                                newStr = str.Replace(separ1, "");
                                 if (Regex.IsMatch(newStr, separ5))
                                 {
                                     newStr = regex3.Replace(newStr, "");
 
-                                    if (IsFind(listExclude, newStr))
+                                    if (IsFind(listKazMusic, newStr))
                                     {
+                                        countKazMusic++;
                                         newStr = "";
-                                    }
-                                    else if (IsFind(listRusMusic, newStr))
-                                    {
-                                        countRusMusic++;
-                                        newStr = "";
-                                    }
-                                    else
-                                    {
-                                        AddInfoInFile("rus Music.txt", newStr);
-                                        listRusMusic.Add(newStr);
                                     }
                                 }
                             }
-                        }
-                        
-                        if (newStr != "")
-                        {
-                            listBox1.Items.Add(newStr);
-                        }
+                            else if (Regex.IsMatch(str, separ3))
+                            {
+                                newStr = regex.Replace(str, "");
+                                if (Regex.IsMatch(newStr, separ4))
+                                {
+                                    newStr = regex2.Replace(newStr, "");
+                                    if (Regex.IsMatch(newStr, separ5))
+                                    {
+                                        newStr = regex3.Replace(newStr, "");
 
+                                        if (IsFind(listExclude, newStr))
+                                        {
+                                            newStr = "";
+                                        }
+                                        else if (IsFind(listRusMusic, newStr))
+                                        {
+                                            countRusMusic++;
+                                            newStr = "";
+                                        }
+                                        else
+                                        {
+                                            AddInfoInFile("rus Music.txt", newStr);
+                                            listRusMusic.Add(newStr);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (newStr != "")
+                            {
+                                listBox2.Items.Add(newStr);
+                            }
+
+                        }
                     }
-                }
 
-                lbCountKazMusic.Text = countKazMusic.ToString();
-                lbCountRusMusic.Text = countRusMusic.ToString();
+                    FileInfo file = new FileInfo(path);
+                    string nameFile = file.Name;
+
+                    listBox1.Items.Add(nameFile + " : Каз муз - " + countKazMusic + " : Рус муз - " + countRusMusic);
+                }
 
                 btnStart.Enabled = true;
             }
@@ -170,18 +183,6 @@ namespace Radio_music_count
         {
             string info = listBox1.Items[listBox1.SelectedIndex].ToString();
             AddInfoInFile("kaz Music.txt", info);
-        }
-
-        private void btnRusReklama_Click(object sender, EventArgs e)
-        {
-            string info = listBox1.Items[listBox1.SelectedIndex].ToString();
-            AddInfoInFile("rus Reklama.txt", info);
-        }
-
-        private void btnKazReklama_Click(object sender, EventArgs e)
-        {
-            string info = listBox1.Items[listBox1.SelectedIndex].ToString();
-            AddInfoInFile("kaz Reklama.txt", info);
         }
     }
 }
